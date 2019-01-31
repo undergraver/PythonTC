@@ -1,2 +1,2 @@
-# Trade Core Python Service
+# TC Python Service
 Following the tutorial from https://www.django-rest-framework.org/
