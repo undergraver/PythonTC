@@ -102,4 +102,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-tcproject/tcapp/migrations/0001_initial.py
+tcproject/tcapp/migrations/*
