@@ -7,6 +7,7 @@ class User(models.Model):
 class Post(models.Model):
     userId = models.ForeignKey(User,on_delete=models.CASCADE)
     pubDate = models.DateField(auto_now_add=True)
+    text = models.TextField()
 
 class Like(models.Model):
     postId = models.ForeignKey(Post,on_delete=models.CASCADE)
