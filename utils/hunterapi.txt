@@ -1,3 +1,3 @@
 Here is the api_key used to query for validity of email address
 
-https://api.hunter.io/v2/email-verifier?email=steli@close.io&api_key=743cf555dc207950b5851225f985cb36c81d3b13
+api_key=743cf555dc207950b5851225f985cb36c81d3b13
