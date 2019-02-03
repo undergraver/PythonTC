@@ -1,12 +1,10 @@
 from rest_framework import serializers
-from tcapp.models import Post, Like
-
-from django.contrib.auth.models import User
+from tcapp.models import Post, Like, User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email','password','username','first_name','last_name')
+        fields = ('id','email','password','first_name','last_name')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
