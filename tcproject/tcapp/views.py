@@ -2,7 +2,8 @@ from tcapp.models import *
 from tcapp.serializers import *
 from rest_framework import generics
 
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import *
+from rest_framework_jwt.authentication import *
 
 class UserList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
@@ -11,6 +12,7 @@ class UserList(generics.ListCreateAPIView):
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = (JSONWebTokenAuthentication,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
