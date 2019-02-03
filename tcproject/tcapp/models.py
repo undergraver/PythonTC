@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 import pyhunter
 import clearbit
@@ -23,14 +24,12 @@ def CheckIfEmailIsGood(value):
             _('Hunter says %s is an invalid email.') % (value)
             )
 
-class User(models.Model):
+class User(AbstractUser):
     email = models.EmailField(unique=True,validators=[CheckIfEmailIsGood])
-    password = models.CharField(max_length=200)
-    first_name = models.CharField(max_length=200,blank=True)
-    last_name = models.CharField(max_length=200,blank=True)
-
     def clean(self):
         super(User,self).clean()
+        if not self.is_active:
+            self.is_active = True
         # complete if first_name and last_name is empty
         if self.first_name == "" and self.last_name == "":
             clearbit.key = os.getenv('CLEARBIT_KEY','bogus')
@@ -49,9 +48,6 @@ class User(models.Model):
     def save(self, **kwargs):
         self.clean()
         return super(User, self).save(**kwargs)
-
-    def __str__(self):
-        return self.email
 
 class Post(models.Model):
     userId = models.ForeignKey(User,on_delete=models.CASCADE)

@@ -4,7 +4,7 @@ from tcapp.models import Post, Like, User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','email','password','first_name','last_name')
+        fields = ('id','email','username','password','first_name','last_name')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
