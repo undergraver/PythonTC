@@ -9,4 +9,4 @@ pyhunter==0.3
 PyJWT==1.7.1
 pytz==2018.9
 requests==2.21.0
-urllib3==1.24.1
+urllib3==1.26.5
